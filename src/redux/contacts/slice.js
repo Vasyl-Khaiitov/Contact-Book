@@ -1,7 +1,8 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './operations';
-import { selectNameFilter } from '../filters/selectors';
+import { selectGlobalFilter } from '../filters/selectors';
 import { selectContacts } from './selectors';
+import { logOut } from '../auth/operations';
 
 const contactSlice = createSlice({
   name: 'contacts',
@@ -40,16 +41,41 @@ const contactSlice = createSlice({
       .addCase(addContact.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.items.push(payload);
+      })
+      .addCase(addContact.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
+        state.error = null;
       }),
 });
 
 export default contactSlice.reducer;
 
 export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter],
-  (contacts, filterContacts) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filterContacts.toLowerCase()),
+  [selectContacts, selectGlobalFilter],
+  (contacts, filterValue) => {
+    if (!contacts || contacts.length === 0) return [];
+    if (!filterValue || filterValue.trim() === '') return contacts;
+
+    const lowerFilter = filterValue.toLowerCase();
+    return contacts.filter(
+      (contact) =>
+        contact.name.toLowerCase().includes(lowerFilter) ||
+        contact.number.includes(filterValue),
     );
   },
 );
+
+// export const selectFilteredContacts = createSelector(
+//   [selectContacts, selectNameFilter, selectNumberFilter],
+//   (contacts, filterContacts, filterNumber) => {
+//     return contacts.filter(
+//       (contact) =>
+//         contact.name.toLowerCase().includes(filterContacts.toLowerCase()) ||
+//         contact.number.includes(filterNumber),
+//     );
+//   },
+// );
