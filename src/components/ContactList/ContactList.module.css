@@ -1,0 +1,16 @@
+ul {
+  list-style: none;
+  padding: 10px;
+}
+
+.contact_list {
+  max-width: 400px;
+}
+
+.contact_list_item {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid #000;
+  margin-bottom: 4px;
+}

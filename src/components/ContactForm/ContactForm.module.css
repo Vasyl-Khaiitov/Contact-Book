@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid gray;
+  width: 220px;
+  padding: 10px;
+}
+
+.form_input {
+  max-width: 215px;
+}
+
+.add_btn {
+  margin-left: 70px;
+  width: 90px;
+}
+
+.error_message {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}
