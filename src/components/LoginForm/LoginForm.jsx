@@ -5,9 +5,11 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import css from './LoginForm.module.css';
 import * as Yup from 'yup';
 
-const validationSchema = Yup.object({
-  email: Yup.string().email('Invalid email format').required('Required'),
-  password: Yup.string().min(7, 'Min 7 characters').required('Required'),
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email format').required('Required field'),
+  password: Yup.string()
+    .min(7, 'Min 7 characters required')
+    .required('Required field'),
 });
 
 export default function LogInForm() {
@@ -39,7 +41,7 @@ export default function LogInForm() {
         <label className={css.label}>
           Email
           <Field type="email" name="email" />
-          <ErrorMessage name="name" component="span" className={css.error} />
+          <ErrorMessage name="email" component="span" className={css.error} />
         </label>
         <label className={css.label}>
           Password
@@ -48,7 +50,11 @@ export default function LogInForm() {
             name="password"
             placeholder="min 7 characters"
           />
-          <ErrorMessage name="name" component="span" className={css.error} />
+          <ErrorMessage
+            name="password"
+            component="span"
+            className={css.error}
+          />
         </label>
         <button className={css.btn_login} type="submit">
           Log In
