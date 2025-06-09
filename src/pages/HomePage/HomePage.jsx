@@ -1,11 +1,9 @@
-import PageTitle from '../../components/PageTitle/PageTitle';
+import Home from '../../components/Home/Home';
 
 export default function HomePage() {
   return (
     <div>
-      <PageTitle>Contact Book</PageTitle>
-
-      <p>Developer Khaitov Vasyl</p>
+      <Home />
     </div>
   );
 }

@@ -15,9 +15,10 @@ export default function Contact({ name, number, id }) {
   };
 
   return (
-    <>
-      <img src={defaultImg} alt="avatar" width={45} height={50} />
-      <ul>
+    <div className={css.contact_container}>
+      <img className={css.avatar} src={defaultImg} alt="avatar" />
+
+      <ul className={css.contact_details}>
         <li>
           <MdPerson4 size={20} />
           {name}
@@ -31,11 +32,10 @@ export default function Contact({ name, number, id }) {
       <button
         className={css.delete_btn}
         type="button"
-        id={id}
         onClick={handleClickDelete}
       >
         Delete
       </button>
-    </>
+    </div>
   );
 }

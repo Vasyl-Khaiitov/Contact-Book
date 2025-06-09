@@ -1,0 +1,36 @@
+.home_container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.developer {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+}
+
+.description h2 {
+  font-size: 22px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.description p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}

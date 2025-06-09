@@ -1,16 +1,19 @@
-ul {
-  list-style: none;
-  padding: 10px;
-}
-
+/* Контейнер списку контактів */
 .contact_list {
-  max-width: 400px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Дві рівні колонки */
+  gap: 16px;
+  list-style: none;
+  padding: 0;
 }
 
+/* Елемент списку */
 .contact_list_item {
   display: flex;
   align-items: center;
-  border-radius: 10px;
-  border: 2px solid #000;
-  margin-bottom: 4px;
+  justify-content: space-between;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

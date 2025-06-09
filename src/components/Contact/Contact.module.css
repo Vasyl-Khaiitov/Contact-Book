@@ -1,10 +1,54 @@
-svg {
-  margin-right: 5px;
+/* Контейнер контакту */
+.contact_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
 }
 
+.contact_container:hover {
+  transform: scale(1.03);
+}
+
+/* Фото */
+.avatar {
+  width: 45px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Список інформації */
+.contact_details {
+  list-style: none;
+  padding: 0;
+}
+
+.contact_details li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Кнопка видалення */
 .delete_btn {
-  width: 70px;
-  height: 30px;
-  margin-right: 10px;
-  margin-left: auto;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: white;
+  background: #dc3545;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete_btn:hover {
+  background: #b02a37;
 }

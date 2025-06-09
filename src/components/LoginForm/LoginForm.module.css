@@ -1,9 +1,64 @@
+/* Контейнер форми */
 .form {
-  width: 320px;
+  max-width: 350px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 }
 
+/* Мітки */
 .label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Поля введення */
+.form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Фокус */
+.form input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+}
+
+/* Повідомлення про помилки */
+.error {
+  color: #d8000c;
+  font-size: 14px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Кнопка входу */
+.btn_login {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 15px;
+}
+
+.btn_login:hover {
+  background: #0056b3;
 }

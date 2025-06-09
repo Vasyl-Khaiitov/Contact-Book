@@ -1,9 +1,36 @@
+/* Контейнер користувача */
 .wrapper {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
+  padding: 16px 20px;
+  width: 200px;
+  height: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Ім'я користувача */
 .username {
-  font-weight: 700;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Кнопка виходу */
+.btn_out {
+  padding: 8px 12px;
+  font-size: 16px;
+  color: white;
+  background: #dc3545;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn_out:hover {
+  background: #b02a37;
 }

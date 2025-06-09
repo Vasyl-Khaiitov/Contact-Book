@@ -46,7 +46,9 @@ export default function RegistrationForm() {
           />
           <ErrorMessage name="name" component="span" className={css.error} />
         </label>
-        <button type="submit">Register</button>
+        <button className={css.btn_registr} type="submit">
+          Register
+        </button>
       </Form>
     </Formik>
   );

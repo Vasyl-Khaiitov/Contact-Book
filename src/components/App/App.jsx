@@ -36,13 +36,15 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route
               path="/register"
-              redirectTo="/"
-              element={<RestrictedRoute page={<RegisterPage />} />}
+              element={
+                <RestrictedRoute redirectTo="/" page={<RegisterPage />} />
+              }
             />
             <Route
               path="/login"
-              redirectTo="/contacts"
-              element={<RestrictedRoute page={<LoginPage />} />}
+              element={
+                <RestrictedRoute redirectTo="/contacts" page={<LoginPage />} />
+              }
             />
             <Route
               path="/contacts"

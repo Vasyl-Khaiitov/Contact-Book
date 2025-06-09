@@ -1,12 +1,36 @@
+/* Загальний контейнер навігації */
+nav {
+  display: flex;
+  gap: 10px;
+  background: #f8f9fa;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  margin: 0;
+}
+/* Посилання */
 .link {
   text-decoration: none;
-  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  padding: 5px 5px;
+  border-radius: 6px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
+/* Активне посилання */
+.active {
+  background: #007bff;
+  color: #fff;
+}
+
+/* Ефект при наведенні */
 .link:hover {
-  text-decoration: underline;
-}
-
-.isActive {
-  color: orangered;
+  background: #0056b3;
+  color: #fff;
 }

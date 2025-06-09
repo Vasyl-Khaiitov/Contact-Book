@@ -1,11 +1,31 @@
-.link {
-  display: inline-block;
-  text-decoration: none;
+/* Контейнер навігації */
+.wrapper_auth_nav {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
   padding: 12px;
-  font-weight: 700;
-  color: #2a363b;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-.link.active {
-  color: #e84a5f;
+/* Посилання */
+.link {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Ефект при наведенні */
+.link:hover {
+  background: #007bff;
+  color: #fff;
 }

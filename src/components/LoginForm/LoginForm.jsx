@@ -50,7 +50,9 @@ export default function LogInForm() {
           />
           <ErrorMessage name="name" component="span" className={css.error} />
         </label>
-        <button type="submit">Log In</button>
+        <button className={css.btn_login} type="submit">
+          Log In
+        </button>
         <Toaster position="top-right" />
       </Form>
     </Formik>

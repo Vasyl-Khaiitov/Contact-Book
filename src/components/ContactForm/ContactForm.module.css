@@ -1,23 +1,56 @@
+/* Контейнер форми */
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border: 2px solid gray;
-  width: 220px;
-  padding: 10px;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 }
 
+/* Стилізація міток */
+.form label {
+  display: block;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Поля введення */
 .form_input {
-  max-width: 215px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
-.add_btn {
-  margin-left: 70px;
-  width: 90px;
-}
-
+/* Повідомлення про помилки */
 .error_message {
-  color: red;
+  color: #d8000c;
   font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Кнопка додавання контакту */
+.add_btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 16px;
   font-weight: bold;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add_btn:hover {
+  background-color: #218838;
 }
