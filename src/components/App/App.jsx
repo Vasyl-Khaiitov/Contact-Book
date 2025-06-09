@@ -1,9 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
 import css from './App.module.css';
-import { lazy } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import Layout from '../Layout/Layout';
+import Loader from '../Loader/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { refreshUser } from '../../redux/auth/operations';
+import { selectisRefreshing } from '../../redux/auth/selectors';
+import RestrictedRoute from '../RestrictredRoute/RestrictedRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+const ProfilePage = lazy(() => import('../../pages/ProfilePage/ProfilePage'));
 const RegisterPage = lazy(
   () => import('../../pages/RegisterPage/RegisterPage'),
 );
@@ -12,16 +19,42 @@ const ContactPage = lazy(() => import('../../pages/ContactPage/ContactPage'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
 export default function App() {
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectisRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <strong>Refreshing user please weait ...</strong>
+  ) : (
     <div className={css.container}>
       <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/contacts" element={<ContactPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/register"
+              redirectTo="/"
+              element={<RestrictedRoute page={<RegisterPage />} />}
+            />
+            <Route
+              path="/login"
+              redirectTo="/contacts"
+              element={<RestrictedRoute page={<LoginPage />} />}
+            />
+            <Route
+              path="/contacts"
+              element={<PrivateRoute page={<ContactPage />} />}
+            />
+            <Route
+              path="/profile"
+              element={<PrivateRoute page={<ProfilePage />} />}
+            />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Suspense>
       </Layout>
     </div>
   );

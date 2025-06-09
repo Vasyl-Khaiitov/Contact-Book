@@ -11,6 +11,12 @@ export const fetchContacts = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.response?.data);
     }
   },
+  {
+    condition: (_, thunkAPI) => {
+      const reduxContactState = thunkAPI.getState();
+      return reduxContactState.auth.token !== null;
+    },
+  },
 );
 
 export const addContact = createAsyncThunk(
