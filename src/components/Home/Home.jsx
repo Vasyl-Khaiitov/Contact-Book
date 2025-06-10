@@ -20,7 +20,7 @@ export default function Home() {
         <ul>
           <li>📌 Add new contacts effortlessly</li>
           <li>🔍 Search and filter contacts instantly</li>
-          <li>✏️ Edit contact information in real time</li>
+          <li>✏️ Edit contact information in real time (in a future update)</li>
           <li>🔒 Secure storage, only you have access</li>
         </ul>
 
