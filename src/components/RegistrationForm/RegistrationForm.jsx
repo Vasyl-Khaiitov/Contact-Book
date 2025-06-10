@@ -5,17 +5,31 @@ import * as Yup from 'yup';
 import css from './RegistrationForm.module.css';
 import toast, { Toaster } from 'react-hot-toast';
 
-const validationSchema = Yup.object({
-  name: Yup.string().min(3, 'Min 3 characters').required('Required'),
-  email: Yup.string().email('Invalid email format').required('Required'),
-  password: Yup.string().min(7, 'Min 7 characters').required('Required'),
+const validationSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, 'Name must be at least 3 characters long')
+    .required('Name is required'),
+  email: Yup.string()
+    .email('Enter a valid email address')
+    .required('Email is required'),
+  password: Yup.string()
+    .transform((value) => String(value))
+    .matches(/^[a-zA-Z0-9]+$/, 'Password can contain letters and numbers only')
+    .min(7, 'Password must be at least 7 characters long')
+    .required('Password is required'),
 });
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
-    dispatch(register(values))
+  const handleSubmit = (value, actions) => {
+    const formattedData = {
+      name: value.name,
+      email: value.email,
+      password: String(value.password),
+    };
+
+    dispatch(register(formattedData))
       .unwrap()
       .then(() => {
         toast.success('Registration successful!');

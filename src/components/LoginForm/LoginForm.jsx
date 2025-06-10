@@ -6,17 +6,25 @@ import css from './LoginForm.module.css';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email format').required('Required field'),
+  email: Yup.string()
+    .email('Enter a valid email address')
+    .required('Email is required'),
   password: Yup.string()
-    .min(7, 'Min 7 characters required')
-    .required('Required field'),
+    .transform((value) => String(value))
+    .matches(/^[a-zA-Z0-9]+$/, 'Password can contain letters and numbers only')
+    .min(7, 'Password must be at least 7 characters long')
+    .required('Password is required'),
 });
 
 export default function LogInForm() {
   const dispatch = useDispatch();
 
   const handleSignIn = (value, actions) => {
-    dispatch(logIn(value))
+    const formattedData = {
+      email: value.email,
+      password: String(value.password),
+    };
+    dispatch(logIn(formattedData))
       .unwrap()
       .then(() => {
         toast.success('Login successful!');
