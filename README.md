@@ -4,7 +4,7 @@ Contact Book is a simple and user-friendly web application built with React that
 - Add new contacts with name, phone number, and email
 - Edit existing contact details
 - Delete contacts from the list
-- Store data locally using browser's LocalStorage
+- Store data locally using browser's LocalStorage and server storage
 
 
 🚀 Technologies Used:
