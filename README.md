@@ -1,12 +1,14 @@
-# React + Vite
+📒 Contact Book — React Web App
+Contact Book is a simple and user-friendly web application built with React that allows users to manage their personal contact list. You can add, edit, delete, and view contacts through an intuitive interface.
+🔧 Features:
+- Add new contacts with name, phone number, and email
+- Edit existing contact details
+- Delete contacts from the list
+- Store data locally using browser's LocalStorage
+- Responsive design for mobile and desktop devices
+🚀 Technologies Used:
+- React (with Hooks)
+- CSS / Styled Components
+- LocalStorage API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
