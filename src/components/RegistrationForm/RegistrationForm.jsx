@@ -37,7 +37,6 @@ export default function RegistrationForm() {
       .catch((error) => {
         toast.error('Registration failed: ' + error.message);
       });
-    actions.resetForm();
   };
 
   return (
